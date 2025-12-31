@@ -19,9 +19,9 @@ const Home = () => {
     
     // FIXED: Define your backend URL. 
     // Replace the URL below with your actual Vercel Backend URL!
-    const backendUrl = 'https://your-backend-project.vercel.app'; 
+    const backendUrl = 'https://book-mern-stack.vercel.app/'; 
     const apiUrl = window.location.hostname === 'localhost' 
-      ? 'http://localhost:5555' 
+      ? 'http://localhost:5000' 
       : backendUrl;
 
     axios
