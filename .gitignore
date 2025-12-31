@@ -1,0 +1,18 @@
+# Prerequisites
+.env
+*.log
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+
+# Build outputs
+dist/
+build/
+out/
+
+# System files
+.DS_Store
+Thumbs.db
+.vscode/
