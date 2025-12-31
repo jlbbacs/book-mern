@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
-import BooksTable from '../components/BooksTable';
-import BooksCard from '../components/BooksCard';
+// FIXED: Added '/home/' to the paths to match your folder structure
+import BooksTable from '../components/home/BooksTable';
+import BooksCard from '../components/home/BookCard'; 
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -15,17 +16,24 @@ const Home = () => {
 
   useEffect(() => {
     setLoading(true);
-    // FIXED: Using relative path for Vercel deployment
+    
+    // FIXED: Define your backend URL. 
+    // Replace the URL below with your actual Vercel Backend URL!
+    const backendUrl = 'https://your-backend-project.vercel.app'; 
+    const apiUrl = window.location.hostname === 'localhost' 
+      ? 'http://localhost:5555' 
+      : backendUrl;
+
     axios
-      .get('/books')
+      .get(`${apiUrl}/books`)
       .then((response) => {
-        // Handle both cases: if your backend returns { data: [...] } or just [...]
+        // Handle both data formats
         const bookData = response.data.data ? response.data.data : response.data;
         setBooks(bookData);
         setLoading(false);
       })
       .catch((error) => {
-        console.log('Error fetching books:', error);
+        console.error('Error fetching books:', error);
         setLoading(false);
       });
   }, []);
