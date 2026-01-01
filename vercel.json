@@ -13,21 +13,15 @@
   ],
   "routes": [
     {
-      "src": "/books",
-      "dest": "backend/index.js"
-    },
-    {
       "src": "/books/(.*)",
       "dest": "backend/index.js"
     },
     {
-      "src": "/assets/(.*)",
-      "dest": "frontend/assets/$1"
+      "src": "/books",
+      "dest": "backend/index.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "frontend/$1",
-      "check": true
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",

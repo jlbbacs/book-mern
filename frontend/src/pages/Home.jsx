@@ -6,8 +6,8 @@ import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md';
 // FIXED: Added '/home/' to the paths to match your folder structure
-import BooksTable from '../components/home/BooksTable';
-import BooksCard from '../components/home/BookCard'; 
+import BooksTable from '../components/home/BooksTable.jsx';
+import BooksCard from '../components/home/BookCard.jsx'; 
 
 const Home = () => {
   const [books, setBooks] = useState([]);
